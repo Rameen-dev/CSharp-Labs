@@ -24,7 +24,7 @@ while (true) // Loop forever until the user chooses "Exit"
             Variables.Run();
             break;
         case "Week 1":
-            Week1_WarmUp.WarmUp1(); 
+            Week1_WarmUp.WarmUp2(); 
             break;
 
         case "0":
