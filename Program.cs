@@ -31,7 +31,7 @@ while (true) // Loop forever until the user chooses "Exit"
 
 
         case "Week 2":
-            Week1_Essential.Essential2(); 
+            Week1_Essential.Essential3(); 
             break;
 
         case "0":

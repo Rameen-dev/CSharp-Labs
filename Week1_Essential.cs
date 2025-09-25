@@ -1,5 +1,6 @@
 ﻿using CSharpLab;
 using System.Diagnostics.Metrics;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 
 public static class Week1_Essential
@@ -103,5 +104,65 @@ public static class Week1_Essential
         {
             Console.WriteLine($"Imperial Height in\n Feet: {Feet}\n Inches: {Inches}");
         }
+    }
+
+    // Essential Task 3 
+
+    public static void Essential3() // This function receives an input and outputs the count of Capital letters, lowercase letters, numbers, whitespaces and symbols.
+    {
+        Console.Write("\nEnter a string: "); // User enters the string here.
+        string input = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(input)) // Check to ensure the input was valid (Not null)
+        {
+            Console.WriteLine("You must enter some text!");
+            return;
+        }
+        // Below I track the count of each of the type of inputs (e.g, Capital letters, lowercase letters, numbers, whitespace)
+        int isUpper = 0; 
+        int isLower = 0;
+        int isDigit = 0;
+        int isSymbol = 0;
+        int isWhiteSpace = 0;
+
+
+        // Loop through each character in the 'input' string
+        for (int i = 0; i < input.Length; i++) 
+        {
+            char c = input[i]; // Fetch the character at position [i]
+
+            // Here I check the character type and increment the right counter.
+            if (char.IsUpper(c)) // If it's a capital letter, increment the isUpper count by one.
+            {
+                isUpper++;        
+            }
+            else if (char.IsLower(c)) // Else if it's a lowercase letter, increment the isLower count by one.
+            {
+                isLower++;
+            }
+            else if (char.IsDigit(c)) // Else if it's a digit, increment the isDigit count by one.
+            {
+                isDigit++;
+            }
+            else if (char.IsWhiteSpace(c)) // Else if it's whitespace, increment the isWhiteSpace count by one.
+            {
+                isWhiteSpace++;
+            }
+            else // If it's none of the above it must be a symbol, increment the isSymbol count by one.
+            {
+                isSymbol++;
+            }
+        }
+
+        // Display input string for reference with length of string
+        Console.WriteLine($"String:{input}");
+        Console.WriteLine($"Length of String:{input.Length}\n");
+
+        // Here I display the results back to the user
+        Console.WriteLine($"Count of Capital letters in string:\n{isUpper}");
+        Console.WriteLine($"Count of Lowercase letters in string:\n{isLower}");
+        Console.WriteLine($"Count of Numbers in string:\n{isDigit}");
+        Console.WriteLine($"Count of Symbols in string:\n{isSymbol}");
+        Console.WriteLine($"Count of Whitespace in string:\n{isWhiteSpace}");
     }
 }
