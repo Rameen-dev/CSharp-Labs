@@ -107,7 +107,6 @@ public static class Week1_Essential
     }
 
     // Essential Task 3 
-
     public static void Essential3() // This function receives an input and outputs the count of Capital letters, lowercase letters, numbers, whitespaces and symbols.
     {
         Console.Write("\nEnter a string: "); // User enters the string here.
@@ -124,7 +123,6 @@ public static class Week1_Essential
         int isDigit = 0;
         int isSymbol = 0;
         int isWhiteSpace = 0;
-
 
         // Loop through each character in the 'input' string
         for (int i = 0; i < input.Length; i++) 
