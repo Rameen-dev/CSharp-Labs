@@ -6,7 +6,6 @@ public static class Week1_Essential
     {
         Console.WriteLine("Week 1 Essential Tasks is running");
     }
-
     // Essential Task 1
     public static void Essential1()
     {
@@ -34,6 +33,41 @@ public static class Week1_Essential
         else
         {
             return "Task not found"; // This will occur if there is an Invalid task.
+        }
+    }
+
+    // Essential Task 2
+
+    public static void Essential2()
+    {
+
+    }
+
+    public static void GetHeightFromUser()
+    {
+        Console.Write("Enter your height (feet): ");
+        int feet = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter your height (Inches): ");
+        int inches = Convert.ToInt32(Console.ReadLine());
+
+        var ImperialHeights1 = new ImperialHeights(feet, inches);
+
+        ImperialHeights1.DisplayImperialHeight();
+    }
+    public class ImperialHeights
+    {
+        public int Feet {  get; set; }
+        public int Inches { get; set; }
+
+        public ImperialHeights(int feet, int inches)
+        {
+            Feet = feet;
+            Inches = inches;
+        }
+        public void DisplayImperialHeight()
+        {
+            Console.WriteLine($"Imperial Height in\n Feet: {Feet}\n Inches: {Inches}");
         }
     }
 }

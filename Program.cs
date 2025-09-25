@@ -12,8 +12,8 @@ while (true) // Loop forever until the user chooses "Exit"
 
 
 
-    Console.WriteLine("Week 1 - Warm Up Tasks");
-    Console.WriteLine("Week 1 - Essential Tasks");
+    Console.WriteLine("Week 1) - Warm Up Tasks");
+    Console.WriteLine("Week 2) - Essential Tasks");
 
     Console.Write("Choices: ");
 
@@ -31,7 +31,7 @@ while (true) // Loop forever until the user chooses "Exit"
 
 
         case "Week 2":
-            Week1_Essential.Essential1(); 
+            Week1_Essential.GetHeightFromUser(); 
             break;
 
         case "0":
