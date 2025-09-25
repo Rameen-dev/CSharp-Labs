@@ -31,7 +31,7 @@ while (true) // Loop forever until the user chooses "Exit"
 
 
         case "Week 2":
-            Week1_Essential.GetHeightFromUser(); 
+            Week1_Essential.Essential2(); 
             break;
 
         case "0":

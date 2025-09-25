@@ -1,4 +1,6 @@
 ﻿using CSharpLab;
+using System.Diagnostics.Metrics;
+using System.Security.Cryptography.X509Certificates;
 
 public static class Week1_Essential
 {
@@ -37,34 +39,66 @@ public static class Week1_Essential
     }
 
     // Essential Task 2
-
     public static void Essential2()
     {
+        var imperial = GetHeightFromUser(); 
+        // This calls my first function which asks for the height of a user in Feet and Inches.
+        // It uses those numbers to create a new ImperialHeights Object
+        // That object is then stored under the imperial variable defined above.
+        // Imperial now contains the feet and inches from the users input.
+
+        imperial.DisplayImperialHeight();
+        // This calls method inside the class DisplayImperialHeight() on your object (imperial)
+        // This prints the value in the object (feet, inches)
+
+        float metres = ConvertToMetres(imperial);
+        // This calls my second function ConvertToMetres() and passes in the object "imperial" as a parameter.
+        // Inside the function we convert feet to inches and then convert the total inches to metres and return it.
+        // I return a float (the height in metres)
+        // That float is saved in the variable (metres) - Example: 5(feet) * 12 = 60 + 10(inches = 70 Inches. Convert Inches to metres: 70(Total Inches) * 0.0254 = 1.778 Metres.
+
+        DisplayMetres(metres);
+        // This calls the third function DisplayMetres()
+        // Passes the metres float as a parameter 
+        // Inside the function we do metres:F2 for an output of metres to two decimal places.
+
 
     }
-
-    public static void GetHeightFromUser()
+    // This is the first function to Task 2 - Getting Height from user in Feet and Inches.
+    public static ImperialHeights GetHeightFromUser()
     {
-        Console.Write("Enter your height (feet): ");
-        int feet = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter your height (feet): "); // Ask for the users height via feet.
+        int feet = Convert.ToInt32(Console.ReadLine()); // Convert the text input into a whole number (Integer).
 
-        Console.Write("Enter your height (Inches): ");
-        int inches = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter your height (Inches): "); // Ask for the users height via inches.
+        int inches = Convert.ToInt32(Console.ReadLine()); // Convert the text input into a whole number (Integer).
 
-        var ImperialHeights1 = new ImperialHeights(feet, inches);
-
-        ImperialHeights1.DisplayImperialHeight();
+        return new ImperialHeights(feet, inches);
     }
+    // This function displays the height in metres to two decimal places.
+    public static void DisplayMetres(float metres)
+    {
+        Console.WriteLine($"Imperial Height in metres: {metres:F2}");
+    }
+    // This function converts the Imperial height (feet, inches) to metres. 
+    public static float ConvertToMetres(ImperialHeights height)
+    {
+        int totalInches = (height.Feet * 12) + height.Inches;
+        float metres = totalInches * 0.0254f;
+        return metres;
+    }
+    // This is the class that stores two Integers for the Imperial Height.
     public class ImperialHeights
     {
-        public int Feet {  get; set; }
-        public int Inches { get; set; }
-
-        public ImperialHeights(int feet, int inches)
+        public int Feet {  get; set; } // This is the feet property
+        public int Inches { get; set; } // This is the Inches property
+        public ImperialHeights(int feet, int inches) // This is a constructor. It runs automatically when you do "new ImperialHeights(feet, inches)".
         {
+            // It sets the Feet and Inches properties to the values you pass in.
             Feet = feet;
             Inches = inches;
         }
+        // This function displays the users Imperial Height in Feet and Inches.
         public void DisplayImperialHeight()
         {
             Console.WriteLine($"Imperial Height in\n Feet: {Feet}\n Inches: {Inches}");
