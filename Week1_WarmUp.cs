@@ -6,7 +6,7 @@ public static class Week1_WarmUp
 {
     public static void Run()
     {
-        Console.WriteLine("Week 1 is running");
+        Console.WriteLine("Week 1 Warm up Tasks is running");
     }
 
     // Warm up Task 1
