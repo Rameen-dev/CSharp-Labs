@@ -163,4 +163,35 @@ public static class Week1_Essential
         Console.WriteLine($"Count of Symbols in string:\n{isSymbol}");
         Console.WriteLine($"Count of Whitespace in string:\n{isWhiteSpace}");
     }
+
+    // Essential Task 4 
+
+    public static void Essential4()
+    {
+        for (int row = 1; row <= 12; row++)
+        {
+            for (int col = 1; col <= 12; col++)
+            {
+                int product = row * col;
+                Console.Write($"{ product,4}");
+
+
+            }
+            Console.WriteLine();
+
+        }
+    }
+
+    public static void Essential5()
+    {
+        for (int row = 1; row <=5;  row++)
+        {
+            for (int col =1; col <= row; col++)
+            {
+                int product = row * col;
+                Console.Write(col + "",3);
+            }
+            Console.WriteLine();
+        }
+    }
 }
