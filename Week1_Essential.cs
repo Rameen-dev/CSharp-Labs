@@ -165,7 +165,6 @@ public static class Week1_Essential
     }
 
     // Essential Task 4 
-
     public static void Essential4()
     {
         for (int row = 1; row <= 12; row++)
@@ -180,7 +179,6 @@ public static class Week1_Essential
             Console.WriteLine();
         }
     }
-
     public static void Essential4_Practice()
     {
         for (int row = 1; row <=5;  row++)
@@ -194,21 +192,19 @@ public static class Week1_Essential
         }
     }
 
-    public static void Essential5()
+    // Essential Task 5
+    public static void Essential5() // This function prints the total count of numbers that contain a 2 or a 7 between the range 0 - 1,000,000
     {
-        int isDigit = 0;
-
-        for (int i = 0; i <= 999999; i++)
+        int count67 = 0; // Here I will store the count of total numbers that either contain a 2 or a 7.
+        for (int i = 0; i <= 1000000; i++) // Here I form the range.
         {
-
-            string s = i.ToString();
+            string s = i.ToString(); // Convert the int range into string format.
 
             if (s.Contains('2') || (s.Contains('7')))
             {
-                isDigit++;
+                count67++;
             }
-           
         }
-        Console.WriteLine(isDigit);
+        Console.WriteLine(count67); // Display the output of total numbers that contain 2 or 7
     }
 }
