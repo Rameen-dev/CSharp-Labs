@@ -195,10 +195,20 @@ public static class Week1_Essential
     }
 
     public static void Essential5()
-
     {
-        Console.Write("Enter a group of numbers: ");
-        int input = Console.Read();
+        int isDigit = 0;
 
+        for (int i = 0; i <= 999999; i++)
+        {
+
+            string s = i.ToString();
+
+            if (s.Contains('2') || (s.Contains('7')))
+            {
+                isDigit++;
+            }
+           
+        }
+        Console.WriteLine(isDigit);
     }
 }
