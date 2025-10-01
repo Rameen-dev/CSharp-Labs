@@ -178,11 +178,10 @@ public static class Week1_Essential
 
             }
             Console.WriteLine();
-
         }
     }
 
-    public static void Essential5()
+    public static void Essential4_Practice()
     {
         for (int row = 1; row <=5;  row++)
         {
@@ -193,5 +192,13 @@ public static class Week1_Essential
             }
             Console.WriteLine();
         }
+    }
+
+    public static void Essential5()
+
+    {
+        Console.Write("Enter a group of numbers: ");
+        int input = Console.Read();
+
     }
 }
