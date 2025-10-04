@@ -1,7 +1,9 @@
 ﻿using CSharpLab;
+using System.ComponentModel.Design;
 using System.Diagnostics.Metrics;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public static class Week1_Essential
 {
@@ -165,16 +167,14 @@ public static class Week1_Essential
     }
 
     // Essential Task 4 
-    public static void Essential4()
+    public static void Essential4() // This function creates a multiplication grid for numbers between 1 and 12
     {
-        for (int row = 1; row <= 12; row++)
+        for (int row = 1; row <= 12; row++) // Outer Loop: Goes through each Column from 1 to 12
         {
-            for (int col = 1; col <= 12; col++)
+            for (int col = 1; col <= 12; col++) // Inner Loop: Goes through each Column from 1 to 12
             {
-                int product = row * col;
-                Console.Write($"{ product,4}");
-
-
+                int product = row * col; // Multiply the current row and column numbers to get the product 
+                Console.Write($"{ product,4}"); // Here I print the product 
             }
             Console.WriteLine();
         }
@@ -191,7 +191,6 @@ public static class Week1_Essential
             Console.WriteLine();
         }
     }
-
     // Essential Task 5
     public static void Essential5() // This function prints the total count of numbers that contain a 2 or a 7 between the range 0 - 1,000,000
     {
@@ -206,5 +205,61 @@ public static class Week1_Essential
             }
         }
         Console.WriteLine(count67); // Display the output of total numbers that contain 2 or 7
+    }
+
+
+    // Essential Task 6
+
+    public static void Essential6()
+    {
+        while (true)
+        {
+
+            List<float> list = new List<float>(); // Here I create an empty list that holds float values.
+
+            string Input1; // Here I store the users Raw input.
+            float inputF; // I will store the converted Raw input into a float data-type and store it here.
+
+            while (true) // This loop checks to make sure that the user is entering a valid number.
+            {
+                Console.Write("Please enter a valid number: ");
+                Input1 = Console.ReadLine();
+
+                if (string.IsNullOrEmpty(Input1))
+                {
+                    Console.WriteLine("You must enter a valid number! Try again.");
+                    continue; // Restart the loop if input is invalid.
+                }
+
+                if (float.TryParse(Input1, out inputF))
+                {
+                    break; // If input passes and converts to a float data-type, break out of the loop and carry on.
+                }
+                else
+                {
+                    Console.WriteLine("That wasn't a valid number. Please try again.");
+                }
+            }
+
+            while (inputF != 0) // Here I keep asking for numbers until the user enters a 0. 
+            {
+                list.Add(inputF); // Every other number gets added to the list established earlier 'list'.
+                Console.Write("Please enter another number: ");
+                string input2 = Console.ReadLine();
+                inputF = Convert.ToSingle(input2);
+            }
+            if (list.Count < 2) // Another safety check to ensure the list is not empty when performing calculations.
+            {
+                Console.WriteLine("You need to enter at least two valid numbers first");
+                continue;
+            }
+            else
+            {
+                Console.WriteLine("List count: " + list.Count);
+                Console.WriteLine("List Average: " + list.Average());
+                Console.WriteLine("List Min: " + list.Min());
+                Console.WriteLine("List Max: " + list.Max());
+            }
+        }
     }
 }
