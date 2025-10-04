@@ -255,6 +255,7 @@ public static class Week1_Essential
             }
             else
             {
+                // Output of statistics using numbers that have been added to the list.
                 Console.WriteLine("List count: " + list.Count);
                 Console.WriteLine("List Average: " + list.Average());
                 Console.WriteLine("List Min: " + list.Min());
