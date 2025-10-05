@@ -3,7 +3,7 @@ namespace CSharpLab;
 
 public static class Variables
 {
-    public static void Run()
+    public static void RunVariables()
     {
         Console.WriteLine("Variables Practice");
 
