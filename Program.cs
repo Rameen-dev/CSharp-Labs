@@ -29,15 +29,15 @@ while (true) // Loop forever until the user chooses "Exit"
             Variables.RunVariables();
             break;
 
-        case "week 1 - Warm-up":
+        case "week 1 - warm-up":
             Week1_WarmUp.WarmUp2(); 
             break;
 
-        case "week 1 - Essential":
-            Week1_Essential.Essential6(); 
-            break;
+        case "week 1 - essential":
+            Week1_Essential.Essential7(); 
+            return;
 
-        case "Week 1 - Tougher": // File not created yet for this switch case.
+        case "Week 1 - tougher": // File not created yet for this switch case.
             //Week1_Tougher.Run();
             return;
 

@@ -1,5 +1,6 @@
 ﻿using CSharpLab;
 using System.ComponentModel.Design;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Metrics;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
@@ -262,5 +263,42 @@ public static class Week1_Essential
                 Console.WriteLine("List Max: " + list.Max());
             }
         }
+    }
+
+    public static void Essential7()
+    {
+        var numbers = new List<int>(); // Here I make an empty list
+
+        while (true)
+        {
+            Console.Write("Enter any number: ");
+            string Input = Console.ReadLine();
+
+            if (int.TryParse(Input, out int n))
+            {
+                if (n == 0) break;
+                numbers.Add(n);
+            }
+            else
+            {
+                Console.WriteLine("Invalid number, try again");
+            }
+        }
+        var result = RunningTotal(numbers);
+        Console.WriteLine($"Original List: " + string.Join(",", numbers));
+        Console.WriteLine($"Running Total: " + string.Join(",", result));
+    }
+
+    public static List<int> RunningTotal(IEnumerable<int> numbers)
+    {
+        var results = new List<int>();
+        int sum = 0;
+
+        foreach (int n in numbers) 
+        {
+            sum += n;
+            results.Add(n);
+        }
+        return results;
     }
 }
