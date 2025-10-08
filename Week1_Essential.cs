@@ -267,38 +267,58 @@ public static class Week1_Essential
 
     public static void Essential7()
     {
-        var numbers = new List<int>(); // Here I make an empty list
+        var numbers = new List<int>(); // Here I make an empty list numbers and store all the numbers the user types in.
 
-        while (true)
+        while (true) // Here I have a while loop that will continue looping until it breaks.
         {
-            Console.Write("Enter any number: ");
-            string Input = Console.ReadLine();
+            Console.Write("Enter any number: "); // Ask for users number input.
+            string Input = Console.ReadLine(); // Get the users input
 
-            if (int.TryParse(Input, out int n))
+            // Here I am trying to convert the Input string into a Integer
+            if (int.TryParse(Input, out int n)) // Here I check if the users input is valid Integer, convert it and store it in 'n'.
             {
-                if (n == 0) break;
-                numbers.Add(n);
+                if (n == 0) break; // If the user enters zero we break out of the loop here. 
+
+                numbers.Add(n); // If the number is valid, we add it to our list.
             }
             else
             {
-                Console.WriteLine("Invalid number, try again");
+                // This message only shows if the user enters something that isn't a number (like 'abc').
+                Console.WriteLine("Invalid number, try again"); 
             }
         }
+
+        // Once the loop ends, we pass the collected numbers to the RunningTotal() function.
+        // This will return a *new list* containing the running totals.
         var result = RunningTotal(numbers);
+
+        // Print the original list entered by the user, using string.Join to format it nicely.
         Console.WriteLine($"Original List: " + string.Join(",", numbers));
+
+        // Print the running totals list, also formatted with commas.
         Console.WriteLine($"Running Total: " + string.Join(",", result));
     }
 
+    // RunningTotal Function
+
+    // This is a function that takes any sequence of integers (e.g. list or array)
+    // and returns a new list with their running totals.
     public static List<int> RunningTotal(IEnumerable<int> numbers)
     {
+        // Create an empty list that will store the cumulative totals as we calculate them. (The cumulative numbers are the totals at each step)
         var results = new List<int>();
+
+        // This variable will keep track of the running total as we loop through the numbers.
         int sum = 0;
 
+        // Here I loop through every number in the numbers list.
         foreach (int n in numbers) 
         {
+            // Add the current number 'n' to the running total 'sum' variable.
             sum += n;
-            results.Add(n);
+            results.Add(sum);
         }
+        // Finally, return the list containing all the running totals.
         return results;
     }
 }
