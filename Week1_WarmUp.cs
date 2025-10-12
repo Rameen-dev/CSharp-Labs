@@ -88,7 +88,6 @@ public static class Week1_WarmUp
             {
                 Console.WriteLine($"Please enter a valid name {hasNumber}");
             }
-            
         }
     }
 
