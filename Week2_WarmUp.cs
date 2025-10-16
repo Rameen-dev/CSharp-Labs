@@ -10,11 +10,11 @@ public static class Week2_WarmUp
         Console.WriteLine("Week 2 Warm up Tasks is running");
     }
 
-    public static void WarmUp1()
+    public static void WarmUp1() // This program allows the user to repeatedly enter lap times (in seconds).
     {
-        List<double> lapTimes = new List<double>(); // This list will store lap times.
+        List<double> lapTimes = new List<double>(); // Create a list that will store all lap times entered by a user.
 
-        Console.WriteLine("Enter Lap times in seconds"); // Here I prompt the user for input in seconds
+        Console.WriteLine("Enter Lap times in seconds"); // Here I ask the user to start entering lap times.
 
 
         while (true) 
