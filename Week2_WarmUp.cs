@@ -16,53 +16,56 @@ public static class Week2_WarmUp
 
         Console.WriteLine("Enter Lap times in seconds"); // Here I ask the user to start entering lap times.
 
-
+        // Here I start an infinite loop until the user enters 0.
         while (true) 
         {
-            Console.Write("Lap Time: ");
-            string input = Console.ReadLine();
+            Console.Write("Lap Time: "); // Here I ask the user for a single lap time.
+            string input = Console.ReadLine(); // Read the user input as text (String)
+
+            // TryParse returns true if the conversion is successful.
             if (double.TryParse(input, out double time)) // Here I Convert the users input from a string to a decimal (Double)
             {
-                if (time == 0)
+                if (time == 0) // End the Infinite loop if the user enters 0, indicating the end of the program.
                 {
-                    Console.WriteLine("Ended from 0 Input"); break; // Exit the loop
-
+                    Console.WriteLine("Ended from 0 Input"); break; // Exit the while loop
                 }
-                lapTimes.Add(time); // If successful, it stores the Input lap time in the lapTimes list.
+                lapTimes.Add(time); // If Input is valid, it stores the Input lap time in the lapTimes list.
                 // Console.WriteLine("Enter another Lap time: ");
             }
-            else
+            else // If the users Input was invalid, for example not a number, this runs. 
             {
                 Console.WriteLine("Invalid input. Please enter an appropriate Lap Time in seconds");
             }
         }
+        // After exiting the loop, check that lap times were entered.
         if (lapTimes.Count > 0)
         {
-            lapTimes.Sort(); // Here I sort the lap times in the list from fastest to slowest.
+            lapTimes.Sort(); // Here I sort the lap times in the list from fastest time to slowest.
 
-            double AvgTime = Average(lapTimes);
+            double AvgTime = Average(lapTimes); // Here I call the average() method to calculate the mean lap time.
 
-            Console.WriteLine($"Number of Laps: {lapTimes.Count}");
-            Console.WriteLine($"Average Lap Times: {AvgTime}");
-
+            Console.WriteLine($"Number of Laps: {lapTimes.Count}"); // Here I display how many lap times were entered.
+            Console.WriteLine($"Average Lap Times: {AvgTime}"); // Here I display the average lap time.
+            
+            // Here I display all lap times entered from fastest to slowest. 
             foreach (double time in lapTimes)
             {
                 Console.WriteLine($"{time:F2} Seconds");
             }
         }
-        else
+        else // This runs if no lap times were entered at all.
         {
             Console.WriteLine("No lap times were entered");
         }
-        
     }
-    public static double Average(List<double> lapTimes) // This function calculates the average
+    public static double Average(List<double> lapTimes) // This function calculates the average using the lap times from the lapTimes list.
     {
-        double total = 0;
-        foreach (double t in lapTimes)
+        double total = 0; // Here I store the total of all lap times added together. 
+        foreach (double t in lapTimes) // Loop through and add each lap time to the "total" variable
         {
             total += t;
         }
-        return total / lapTimes.Count;
+        return total / lapTimes.Count; // Divide the total by how many lap times there are to get the average.
+
     }
 }
