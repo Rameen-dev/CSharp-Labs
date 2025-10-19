@@ -79,6 +79,9 @@ public static class Week2_WarmUp
 
         while (true)
         {
+            Console.Write("Enter Student ID: "); // User types the student ID here.
+            string input = Console.ReadLine(); // Read the Users input as text.
+
 
         }
     }
