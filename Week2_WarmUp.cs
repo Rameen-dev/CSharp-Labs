@@ -68,4 +68,18 @@ public static class Week2_WarmUp
         return total / lapTimes.Count; // Divide the total by how many lap times there are to get the average.
 
     }
+
+
+    public static void WarmUp2() // This is a student register system which allows to enter their Student IDs one by one.
+    {
+        HashSet<int> set = new HashSet<int>(); // Create a HashSet to store unique student IDs (No duplicates allowed)
+
+        Console.WriteLine("Student Register System");
+        Console.WriteLine("Enter Student IDs (enter 0 to finish)");
+
+        while (true)
+        {
+
+        }
+    }
 }
