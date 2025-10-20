@@ -68,13 +68,11 @@ public static class Week2_WarmUp
         return total / lapTimes.Count; // Divide the total by how many lap times there are to get the average.
 
     }
-
-
     public static void WarmUp2() // This is a student register system which allows to enter their Student IDs one by one.
     {
-        HashSet<int> set = new HashSet<int>(); // Create a HashSet to store unique student IDs (No duplicates allowed)
+        HashSet<int> studentIDs = new HashSet<int>(); // Create a HashSet to store unique student IDs (No duplicates allowed) - Type of collection that's a data structure.
 
-        Console.WriteLine("Student Register System");
+        Console.WriteLine("Student Register System"); 
         Console.WriteLine("Enter Student IDs (enter 0 to finish)");
 
         while (true)
@@ -82,7 +80,37 @@ public static class Week2_WarmUp
             Console.Write("Enter Student ID: "); // User types the student ID here.
             string input = Console.ReadLine(); // Read the Users input as text.
 
-
+            // TryParse returns true if the conversion is successful.
+            if (int.TryParse(input, out int id)) // Here I Convert the users input from a string to a Integer (Number)
+            {
+                if (id == 0) // End the Infinite loop if the user enters 0, indicating the end of the program.
+                {
+                    Console.WriteLine("Ended from 0 Input"); break; // Exit the while loop
+                }
+                if (studentIDs.Add(id)) // If input is valid, we add the new Unique student ID to the Hash set.
+                {
+                    Console.WriteLine($"Student ID: {id} has been added Successfully!"); // Display message indicating the successful addition of the new Student ID to the collection.
+                }
+                else // If the entered student ID is a duplicate, it won't be added and this message will be displayed.
+                {
+                    Console.WriteLine($"Student ID: {id} is already registered in the System."); 
+                }
+            }
+            else // If Input was invalid (Letters in input) then I display this message to the user.
+            {
+                Console.WriteLine("Please enter a valid Student ID to Register!");
+            }
         }
+        Console.WriteLine($"Total student IDs: {studentIDs.Count()}"); // Here I display the Total count of all student IDs in the system.
+        Console.WriteLine("List of Registered Students"); // Here I show the list of Student IDs below through the foreach statement.
+
+        int count = 1; // Start a counter from 1 to label each student in order.
+
+        foreach (int id in studentIDs) // Loop through every id in studentIDs in the HashSet.
+        {
+            Console.WriteLine($"Student {count}.) {id}"); // Display the student ID in a readable format.
+            count++; // Increase the counter by 1 for the next student.
+        }
+        Console.WriteLine("End of Student Register.");
     }
 }
