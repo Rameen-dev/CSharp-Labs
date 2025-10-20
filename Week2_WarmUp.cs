@@ -1,6 +1,7 @@
 ﻿using CSharpLab;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
+using System.Collections.Generic; 
 
 
 public static class Week2_WarmUp
@@ -112,5 +113,52 @@ public static class Week2_WarmUp
             count++; // Increase the counter by 1 for the next student.
         }
         Console.WriteLine("End of Student Register.");
+    }
+    public static void WarmUp3() 
+        {
+        Dictionary<string, int> patients = new Dictionary<string, int>(); // Here I hardcoded and store the patients Name and NHS Number.
+
+        patients.Add("Rameen Burdabar", 4010606);
+        patients.Add("Bogdan Dinulescu", 4023190);
+        patients.Add("Osama Elamami", 4021765);
+        patients.Add("Reefat Daniel Aziz", 4011068);
+
+        Console.WriteLine("Patient NHS Look-up - Patient Names");
+        Console.WriteLine("-------------------------------------");
+        Console.WriteLine("Enter a patients Full name to view their NHS Number.");
+        Console.WriteLine("Type 'Exit' to end program.");
+
+        while (true)
+        {
+            Console.Write("Enter patient Name: ");
+            string input = Console.ReadLine();
+
+            if (input == "Exit")
+            {
+                Console.WriteLine("Program ended!");
+                break;
+            }
+            if (patients.ContainsKey(input))
+            {
+                Console.WriteLine($"\nNHS Number for patient {input}: {patients[input]}");
+            }
+            else
+            {
+                Console.WriteLine("Patient does not Exist in Dictionary");
+            }
+            if (string.IsNullOrEmpty(input)) // If Input was invalid (Letters in input) then I display this message to the user.
+            {
+                Console.WriteLine("Invalid Input, please try again!");
+                continue;
+            }
+            Console.WriteLine("All NHS Patient Details\n");
+            int count = 1;
+            foreach (KeyValuePair<string, int> record in patients)
+            {
+                Console.WriteLine($"Patient {count}.) Name: {record.Key} - NHS Number: {record.Value}");
+                count++;
+            }
+        }
+        Console.WriteLine("End of NHS System");
     }
 }
