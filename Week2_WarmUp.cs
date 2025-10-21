@@ -1,8 +1,8 @@
 ﻿using CSharpLab;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
-using System.Collections.Generic; 
-
+using System.Collections.Generic;
+using System.Linq;
 
 public static class Week2_WarmUp
 {
@@ -18,7 +18,7 @@ public static class Week2_WarmUp
         Console.WriteLine("Enter Lap times in seconds"); // Here I ask the user to start entering lap times.
 
         // Here I start an infinite loop until the user enters 0.
-        while (true) 
+        while (true)
         {
             Console.Write("Lap Time: "); // Here I ask the user for a single lap time.
             string input = Console.ReadLine(); // Read the user input as text (String)
@@ -47,7 +47,7 @@ public static class Week2_WarmUp
 
             Console.WriteLine($"Number of Laps: {lapTimes.Count}"); // Here I display how many lap times were entered.
             Console.WriteLine($"Average Lap Times: {AvgTime}"); // Here I display the average lap time.
-            
+
             // Here I display all lap times entered from fastest to slowest. 
             foreach (double time in lapTimes)
             {
@@ -59,7 +59,7 @@ public static class Week2_WarmUp
             Console.WriteLine("No lap times were entered");
         }
     }
-    public static double Average(List<double> lapTimes) // This function calculates the average using the lap times from the lapTimes list.
+    public static double Average(List<double> lapTimes) // This function calculates the average using the lap times from the lapTimes list (Part of WarmUp1)
     {
         double total = 0; // Here I store the total of all lap times added together. 
         foreach (double t in lapTimes) // Loop through and add each lap time to the "total" variable
@@ -73,7 +73,7 @@ public static class Week2_WarmUp
     {
         HashSet<int> studentIDs = new HashSet<int>(); // Create a HashSet to store unique student IDs (No duplicates allowed) - Type of collection that's a data structure.
 
-        Console.WriteLine("Student Register System"); 
+        Console.WriteLine("Student Register System");
         Console.WriteLine("Enter Student IDs (enter 0 to finish)");
 
         while (true)
@@ -94,7 +94,7 @@ public static class Week2_WarmUp
                 }
                 else // If the entered student ID is a duplicate, it won't be added and this message will be displayed.
                 {
-                    Console.WriteLine($"Student ID: {id} is already registered in the System."); 
+                    Console.WriteLine($"Student ID: {id} is already registered in the System.");
                 }
             }
             else // If Input was invalid (Letters in input) then I display this message to the user.
@@ -114,8 +114,8 @@ public static class Week2_WarmUp
         }
         Console.WriteLine("End of Student Register.");
     }
-    public static void WarmUp3() 
-        {
+    public static void WarmUp3()
+    {
         // I created a Dictionary here where: Key = Patients Name, Value = NHS Number.
         Dictionary<string, int> patients = new Dictionary<string, int>();
 
@@ -154,7 +154,7 @@ public static class Week2_WarmUp
             }
             else // If the input has no match with a key from the dictionary, we display this message, stating that a record for the users input does not exist.
             {
-                Console.WriteLine("Patient does not Exist in Dictionary"); 
+                Console.WriteLine("Patient does not Exist in Dictionary");
             }
             // Below I display the rest of the Patients names and NHS Number
             Console.WriteLine("All NHS Patient Details\n");
@@ -167,5 +167,29 @@ public static class Week2_WarmUp
             }
         }
         Console.WriteLine("End of NHS System"); // Final line displayed once exiting the loop.
+    }
+
+    public static void WarmUp4() // Find the Maximum difference between a list of numbers. (EXPAND BY MAKING THE USER ENTER THE NUMBERS)
+    {
+        List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8}; // Liat with hard-coded values already.
+
+        if (numbers.Count < 2) // Check to make sure there is more than 1 number to work with.
+        {
+            Console.WriteLine("You need two numbers for this function to work");
+            return;
+        }
+
+        int minValue = numbers.Min(); // Here I store the Minimum value from the list in minValue
+        int maxValue = numbers.Max(); // Here I store the Maximum value from the list in minValue
+        int difference = maxValue - minValue; // Here I perform the Maximum - Minimum value calculation and store it under the variable name "difference"
+
+        Console.WriteLine("Numbers in the list");
+        foreach (int n in numbers) // Here I loop through the list to display each number to user.
+        {
+            Console.WriteLine(n);
+        }
+        Console.WriteLine($"Minimum value: {minValue}"); // I display the Minimum value from the list here.
+        Console.WriteLine($"Maximum value: {maxValue}"); // I display the Maximum value from the list here.
+        Console.WriteLine($"Maximum Difference (Range): {difference}"); // I display the Maximum difference here (Maximum value from list - Minimum value from list)
     }
 }
