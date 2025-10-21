@@ -116,23 +116,32 @@ public static class Week2_WarmUp
     }
     public static void WarmUp3() 
         {
-        Dictionary<string, int> patients = new Dictionary<string, int>(); // Here I hardcoded and store the patients Name and NHS Number.
+        // I created a Dictionary here where: Key = Patients Name, Value = NHS Number.
+        Dictionary<string, int> patients = new Dictionary<string, int>();
 
+        // Here I hardcoded and store the patients Name and NHS Number.
         patients.Add("Rameen Burdabar", 4010606);
         patients.Add("Bogdan Dinulescu", 4023190);
         patients.Add("Osama Elamami", 4021765);
         patients.Add("Reefat Daniel Aziz", 4011068);
 
+        // Simple UI Header
         Console.WriteLine("Patient NHS Look-up - Patient Names");
         Console.WriteLine("-------------------------------------");
         Console.WriteLine("Enter a patients Full name to view their NHS Number.");
         Console.WriteLine("Type 'Exit' to end program.");
 
+        // Here I keep asking for names until the user types "Exit"
         while (true)
         {
             Console.Write("Enter patient Name: ");
-            string input = Console.ReadLine();
+            string input = Console.ReadLine(); // Read the users input.
 
+            if (string.IsNullOrEmpty(input)) // If Input was left empty then I display this message to the user.
+            {
+                Console.WriteLine("Invalid Input, please try again!");
+                continue;
+            }
             if (input == "Exit")
             {
                 Console.WriteLine("Program ended!");
@@ -146,11 +155,7 @@ public static class Week2_WarmUp
             {
                 Console.WriteLine("Patient does not Exist in Dictionary");
             }
-            if (string.IsNullOrEmpty(input)) // If Input was invalid (Letters in input) then I display this message to the user.
-            {
-                Console.WriteLine("Invalid Input, please try again!");
-                continue;
-            }
+           
             Console.WriteLine("All NHS Patient Details\n");
             int count = 1;
             foreach (KeyValuePair<string, int> record in patients)
