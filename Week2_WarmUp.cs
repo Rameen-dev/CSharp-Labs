@@ -142,28 +142,30 @@ public static class Week2_WarmUp
                 Console.WriteLine("Invalid Input, please try again!");
                 continue;
             }
+            // If user wishes to end program, they must type "Exit"
             if (input == "Exit")
             {
                 Console.WriteLine("Program ended!");
                 break;
             }
-            if (patients.ContainsKey(input))
+            if (patients.ContainsKey(input)) // If the Input matches a key (Name) we display the NHS Number below
             {
                 Console.WriteLine($"\nNHS Number for patient {input}: {patients[input]}");
             }
-            else
+            else // If the input has no match with a key from the dictionary, we display this message, stating that a record for the users input does not exist.
             {
-                Console.WriteLine("Patient does not Exist in Dictionary");
+                Console.WriteLine("Patient does not Exist in Dictionary"); 
             }
-           
+            // Below I display the rest of the Patients names and NHS Number
             Console.WriteLine("All NHS Patient Details\n");
-            int count = 1;
+            int count = 1; // Start numbers from 1 for display.
             foreach (KeyValuePair<string, int> record in patients)
             {
+                // Here I show "Patient X.) Name: (Key) - NHS Number (Value)"
                 Console.WriteLine($"Patient {count}.) Name: {record.Key} - NHS Number: {record.Value}");
-                count++;
+                count++; // Increment the display number for 2nd to 3rd and so on patient.
             }
         }
-        Console.WriteLine("End of NHS System");
+        Console.WriteLine("End of NHS System"); // Final line displayed once exiting the loop.
     }
 }
