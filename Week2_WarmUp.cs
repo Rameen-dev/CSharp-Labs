@@ -10,7 +10,6 @@ public static class Week2_WarmUp
     {
         Console.WriteLine("Week 2 Warm up Tasks is running");
     }
-
     public static void WarmUp1() // This program allows the user to repeatedly enter lap times (in seconds).
     {
         List<double> lapTimes = new List<double>(); // Create a list that will store all lap times entered by a user.
@@ -191,5 +190,30 @@ public static class Week2_WarmUp
         Console.WriteLine($"Minimum value: {minValue}"); // I display the Minimum value from the list here.
         Console.WriteLine($"Maximum value: {maxValue}"); // I display the Maximum value from the list here.
         Console.WriteLine($"Maximum Difference (Range): {difference}"); // I display the Maximum difference here (Maximum value from list - Minimum value from list)
+    }
+    public static void WarmUp5()
+    {
+        // Here I create a list for student Nomination
+        List<string> nominations = new List<string> { "Rameen", "Bogdan", "Reefat", "Osama" , "Rameen", "Bogdan", "Rameen"};
+
+        // Here I count and display the total nominations
+        Console.WriteLine($"Total Nominations: {nominations.Count}");
+
+        int uniqueCount = nominations.Distinct().Count();
+
+        Console.WriteLine($"Unique Count: {uniqueCount}");
+
+        // Here I also display all the Unique names below
+
+        Console.WriteLine($"Unique count of names");
+
+        int count = 1;
+        foreach (string name in nominations.Distinct())
+        {
+            Console.WriteLine($"Unique Name {count}.) - {name}");
+            count++;
+        }
+        Console.WriteLine("\nEnd of Inspirational Student Award nominations system.");
+
     }
 }
