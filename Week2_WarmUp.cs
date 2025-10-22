@@ -167,7 +167,6 @@ public static class Week2_WarmUp
         }
         Console.WriteLine("End of NHS System"); // Final line displayed once exiting the loop.
     }
-
     public static void WarmUp4() // Find the Maximum difference between a list of numbers. (EXPAND BY MAKING THE USER ENTER THE NUMBERS)
     {
         List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8}; // Liat with hard-coded values already.
@@ -191,7 +190,7 @@ public static class Week2_WarmUp
         Console.WriteLine($"Maximum value: {maxValue}"); // I display the Maximum value from the list here.
         Console.WriteLine($"Maximum Difference (Range): {difference}"); // I display the Maximum difference here (Maximum value from list - Minimum value from list)
     }
-    public static void WarmUp5()
+    public static void WarmUp5() // Nominations for the Student Inspirational Award
     {
         // Here I create a list for student Nomination
         List<string> nominations = new List<string> { "Rameen", "Bogdan", "Reefat", "Osama" , "Rameen", "Bogdan", "Rameen"};
@@ -199,12 +198,33 @@ public static class Week2_WarmUp
         // Here I count and display the total nominations
         Console.WriteLine($"Total Nominations: {nominations.Count}");
 
-        int uniqueCount = nominations.Distinct().Count();
+        // The Distinct() method removes duplicate entries from the list, leaving only unique names.
+        int uniqueCount = nominations.Distinct().Count(); 
 
-        Console.WriteLine($"Unique Count: {uniqueCount}");
+        Console.WriteLine($"Unique Count: {uniqueCount}\n");
+
+        Dictionary<string, int> nominationCount = new Dictionary<string, int>();
+
+        // Here I process the list to see how many times the names appear in nominations
+        foreach (string name in nominations)
+        {
+            if (nominationCount.ContainsKey(name))
+            {
+                // If the name already exists in the dictionary, increase the count by 1
+                nominationCount[name]++; // Example: "KeRameen, 2"
+            }
+            else
+            {
+                // If the name is not yet in the dictionary, add it with an initial count of 1
+                nominationCount.Add(name, 1);
+            }
+        }
+        foreach (KeyValuePair<string, int> name in nominationCount)
+        {
+            Console.WriteLine($"Nominations Count: {name.Key} - {name.Value}");
+        }
 
         // Here I also display all the Unique names below
-
         Console.WriteLine($"Unique count of names");
 
         int count = 1;
@@ -213,7 +233,7 @@ public static class Week2_WarmUp
             Console.WriteLine($"Unique Name {count}.) - {name}");
             count++;
         }
+        // Display a simple end of program message.
         Console.WriteLine("\nEnd of Inspirational Student Award nominations system.");
-
     }
 }
