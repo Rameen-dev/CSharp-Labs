@@ -16,7 +16,8 @@ while (true) // Loop forever until the user chooses "Exit"
     Console.WriteLine("Week 2) - Warm Up Tasks: week 2 - warm-up"); // Beginner Task worksheet
     Console.WriteLine("Week 2) - Essential Tasks: Coming Soon"); // Essential Task worksheet
     Console.WriteLine("Week 2) - Tougher Tasks: Coming Soon\n"); // Tougher Task worksheet
-
+    // Week 3 Worksheet
+    Console.WriteLine("Week 3) - Warm Up Tasks: week 3 - warm-up");
 
 
     Console.WriteLine("Exit: exit\n");             // Exit Program
@@ -47,6 +48,10 @@ while (true) // Loop forever until the user chooses "Exit"
 
         case "week 2 - warm-up":
             Week2_WarmUp.WarmUp5();
+            return;
+
+        case "week 3 - warm-up":
+            Week3_WarmUp.WarmUp2();
             return;
 
         case "exit":
