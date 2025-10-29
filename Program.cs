@@ -51,7 +51,7 @@ while (true) // Loop forever until the user chooses "Exit"
             return;
 
         case "week 3 - warm-up":
-            Week3_WarmUp.WarmUp2();
+            Week3_WarmUp.WarmUp3();
             return;
 
         case "exit":
