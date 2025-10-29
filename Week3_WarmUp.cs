@@ -52,28 +52,29 @@ public static class Week3_WarmUp
         // Our original Numbers List
         List<int> numbers = new List<int> { 1, 3, 4, 7, 2, 9, 5, 8 };
 
-        IEnumerable<int> doubledNumbers = numbers.Select(number => number * 2); 
-
-        Console.WriteLine("Original Numbers\n");
+        IEnumerable<int> doubledNumbers = numbers.Select(number => number * 2); // This is a Lambda function that takes one input and outputs 'number * 2'
 
         // Original Numbers Loop
+        Console.WriteLine("Original Numbers\n");
+
         int countOriginal = 1;
         foreach (int number in numbers)
         {
             Console.WriteLine($"{countOriginal}. " + number);
             countOriginal++;
         }
-
+        // DoubledNumbers Loop
         Console.WriteLine("\nDoubled Numbers\n");
 
-        // DoubledNumbers Loop
         int countDoubled = 1;
         foreach (int number in doubledNumbers)
         {
             Console.WriteLine($"{countDoubled}. " + number);
             countDoubled++;
         }
-
+    }
+    public static void WarmUp4()
+    {
 
     }
 }
